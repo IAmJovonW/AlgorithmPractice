@@ -25,13 +25,19 @@ class DoublyLinkedList:
 		pass
     def removeNodesWithValue(self, value):
         # Write your code here.
-		pass
+		node = self.head
+		while node is not None and node.value != value:
+			nodeToRemove = node
+			node = node.next
+			if nodeToRemove.value == value:
+				self.remove(nodeToRemove)
+		
     def remove(self, node):
         # Write your code here.
 		if node == self.head:
-			node.next = self.head
+			self.head = self.head.next
 		elif node == self.tail:
-			node.prev = self.tail
+			self.tail = self.tail.prev
 		
 		self.removeBindings(node)
 		
